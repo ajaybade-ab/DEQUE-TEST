@@ -101,3 +101,10 @@ td, th {
   padding: 8px;
   z-index: 10;
 }
+
+.site-footer {
+  background: #1f3a5f;
+  color: #fff;
+  padding: 12px 24px;
+  margin-top: 24px;
+}

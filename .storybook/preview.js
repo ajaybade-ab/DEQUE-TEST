@@ -2,6 +2,7 @@ import '../assets/styles.css';
 
 /** @type { import('@storybook/html-vite').Preview } */
 const preview = {
+  decorators: [(story) => `${story()}<footer class="site-footer"><p>DEQUE-TEST-AJAY</p></footer>`],
   parameters: {
     a11y: {
       // 'error' fails the story's a11y check (and Chromatic accessibility test) on any violation.
