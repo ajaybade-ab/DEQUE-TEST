@@ -2,7 +2,18 @@ import '../assets/styles.css';
 
 /** @type { import('@storybook/html-vite').Preview } */
 const preview = {
-  decorators: [(story) => `${story()}<footer class="site-footer"><p>DEQUE-TEST-AJAY</p></footer>`],
+  decorators: [
+    (story) => {
+      const content = story();
+      const footer = '<footer class="site-footer"><p>DEQUE-TEST-AJAY</p></footer>';
+      if (typeof content === 'string') return content + footer;
+      // Library stories return live elements so their click and keyboard handlers survive.
+      const wrapper = document.createElement('div');
+      wrapper.append(content);
+      wrapper.insertAdjacentHTML('beforeend', footer);
+      return wrapper;
+    },
+  ],
   parameters: {
     a11y: {
       // 'error' fails the story's a11y check (and Chromatic accessibility test) on any violation.

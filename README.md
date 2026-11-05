@@ -11,6 +11,7 @@ Each broken spot has an `<!-- ISSUE: rule-id -->` comment naming the expected ax
 | `index.html`, `pages/*.html` | Static pages full of violations. Test them with the axe browser extension or a crawler. |
 | `accessible.html` | Control page. It should produce **zero** automated violations. |
 | `stories/*.stories.js` | Storybook stories. Each area has a `Broken` and a `Fixed` story. Chromatic tests these. |
+| `stories/library/` | An accessible component library (Design System, Forms, Navigation) that fills Chromatic's Library page. All of it should pass. |
 | `data/test-data.json` | Random but reproducible users and bookings, used by the tables. |
 | `scripts/generate-data.mjs` | Regenerates the data: `npm run generate-data -- 123` (the number is the seed). |
 | `.github/workflows/chromatic.yml` | Publishes Storybook to Chromatic on every push and pull request. |
