@@ -5,11 +5,13 @@ const preview = {
   decorators: [
     (story) => {
       const content = story();
+      const header = '<header class="site-header"><p class="site-header-name">DEQUE-TEST-HEADER-AJAY</p></header>';
       const footer = '<footer class="site-footer"><p>DEQUE-TEST-AJAY</p></footer>';
-      if (typeof content === 'string') return content + footer;
+      if (typeof content === 'string') return header + content + footer;
       // Library stories return live elements so their click and keyboard handlers survive.
       const wrapper = document.createElement('div');
       wrapper.append(content);
+      wrapper.insertAdjacentHTML('afterbegin', header);
       wrapper.insertAdjacentHTML('beforeend', footer);
       return wrapper;
     },
